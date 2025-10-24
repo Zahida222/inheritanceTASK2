@@ -55,12 +55,12 @@ namespace HomeTask2.Models
             Email = email;
         }
 
-        private bool IsValidUsername(string username)
+        public static bool IsValidUsername(string username)
         {
-            return username.Length > 6;
+            return !string.IsNullOrEmpty(username) && username.Length > 6;
         }
 
-        private bool IsValidPassword(string password)
+        public static bool IsValidPassword(string password)
         {
             int upperCount = 0;
             int digitCount = 0;
@@ -79,7 +79,7 @@ namespace HomeTask2.Models
                 return false;
         }
 
-        private bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
             if (!email.Contains("@")) return false;
 
